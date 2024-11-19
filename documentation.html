@@ -1,0 +1,513 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Code Documentation</title>
+        <style>
+            body {
+                font-family: monospace;
+                line-height: 1.5;
+                background-color: #f4f4f4;
+                margin: 20px;
+            }
+            pre {
+                background: #222;
+                color: #f8f8f2;
+                padding: 15px;
+                border-radius: 5px;
+                overflow: auto;
+                margin-bottom: 20px;
+            }
+            h2 {
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Code Documentation</h1>
+    <h2>pydocumentation.txt</h2><pre># import pandas as pd
+# import plotly_express as px
+#
+# import folium
+# from folium.plugins import HeatMap
+
+import webbrowser
+import ctypes
+import html
+import time
+import os
+
+
+def clear_screen():
+    if os.name == &#x27;nt&#x27;:
+        os.system(&#x27;cls&#x27;)
+    else:
+        os.system(&#x27;clear&#x27;)
+
+
+def maximize_console_window():
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if hwnd != 0:
+        ctypes.windll.user32.ShowWindow(hwnd, 3)  # 3 = SW_MAXIMIZE
+
+
+def generate_html_from_multiple_txt(txt_files, output_html):
+    html_content = &quot;&quot;&quot;
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Code Documentation&lt;/title&gt;
+        &lt;style&gt;
+            body {
+                font-family: monospace;
+                line-height: 1.5;
+                background-color: #f4f4f4;
+                margin: 20px;
+            }
+            pre {
+                background: #222;
+                color: #f8f8f2;
+                padding: 15px;
+                border-radius: 5px;
+                overflow: auto;
+                margin-bottom: 20px;
+            }
+            h2 {
+                color: #333;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Code Documentation&lt;/h1&gt;
+    &quot;&quot;&quot;
+
+    for txt_file in txt_files:
+        file_name = os.path.basename(txt_file)
+        try:
+            with open(txt_file, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:
+                raw_content = file.read()
+                escaped_content = html.escape(raw_content)  # Escape special characters
+            html_content += f&quot;&lt;h2&gt;{file_name}&lt;/h2&gt;&lt;pre&gt;{escaped_content}&lt;/pre&gt;&quot;
+        except Exception as e:
+            html_content += f&quot;&lt;h2&gt;{file_name} (Error Loading File)&lt;/h2&gt;&lt;pre&gt;{str(e)}&lt;/pre&gt;&quot;
+
+    html_content += &quot;&quot;&quot;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    &quot;&quot;&quot;
+
+    with open(output_html, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        file.write(html_content)
+
+    os.system(f&quot;start {output_html}&quot;)  # Open in the default browser
+
+
+# Call this function at the beginning of script
+maximize_console_window()
+
+
+# ascii art attribution: https://www.asciiart.eu/text-to-ascii-art
+# additional attribution: https://onlinetools.com/ascii/convert-text-to-ascii-art
+def main():
+    clear_screen()
+    # print(f&#x27;\033[1;1HWelcome to the Federal Aviation Administration Migratory Bird Visualizer&#x27;)
+    print(&#x27;&#x27;&#x27;\033[1;1H o      o        8                                  o             o  8
+\033[2;1H 8      8        8                                  8             8  8
+\033[3;1H 8      8 .oPYo. 8 .oPYo. .oPYo. ooYoYo. .oPYo.    o8P .oPYo.    o8P 8oPYo. .oPYo.
+\033[4;1H 8  db  8 8oooo8 8 8    &#x27; 8    8 8&#x27; 8  8 8oooo8     8  8    8     8  8    8 8oooo8
+\033[5;1H `b.PY.d&#x27; 8.     8 8    . 8    8 8  8  8 8.         8  8    8     8  8    8 8.
+\033[6;1H  `8  8&#x27;  `Yooo&#x27; 8 `YooP&#x27; `YooP&#x27; 8  8  8 `Yooo&#x27;     8  `YooP&#x27;     8  8    8 `Yooo&#x27;
+\033[7;1H
+\033[8;1H
+\033[9;1H  ooooo             8                     8        .oo         o          o   o
+\033[10;1H  8                 8                     8       .P 8                    8
+\033[11;1H o8oo   .oPYo. .oPYo8 .oPYo. oPYo. .oPYo. 8      .P  8 o    o o8 .oPYo.  o8P o8 .oPYo. odYo.
+\033[12;1H  8     8oooo8 8    8 8oooo8 8  `&#x27; .oooo8 8     oPooo8 Y.  .P  8 .oooo8   8   8 8    8 8&#x27; `8
+\033[13;1H  8     8.     8    8 8.     8     8    8 8    .P    8 `b..d&#x27;  8 8    8   8   8 8    8 8   8
+\033[14;1H  8     `Yooo&#x27; `YooP&#x27; `Yooo&#x27; 8     `YooP8 8   .P     8  `YP&#x27;   8 `YooP8   8   8 `YooP&#x27; 8   8
+\033[15;1H
+\033[16;1H
+\033[17;1H      .oo      8          o        o          o                 o   o
+\033[18;1H     .P 8      8                              8                 8
+\033[19;1H    .P  8 .oPYo8 ooYoYo. o8 odYo. o8 .oPYo.  o8P oPYo. .oPYo.  o8P o8 .oPYo. odYo.
+\033[20;1H   oPooo8 8    8 8&#x27; 8  8  8 8&#x27; `8  8 Yb..     8  8  `&#x27; .oooo8   8   8 8    8 8&#x27; `8
+\033[21;1H  .P    8 8    8 8  8  8  8 8   8  8   &#x27;Yb.   8  8     8    8   8   8 8    8 8   8
+\033[22;1H .P     8 `YooP&#x27; 8  8  8  8 8   8  8 `YooP&#x27;   8  8     `YooP8   8   8 `YooP&#x27; 8   8
+\033[23;1H
+\033[24;1H o     o  o                       o                         .oPYo.  o            8
+\033[25;1H 8b   d8                          8                         8   `8               8
+\033[26;1H 8`b d&#x27;8 o8 .oPYo. oPYo. .oPYo.  o8P .oPYo. oPYo. o    o   o8YooP&#x27; o8 oPYo. .oPYo8
+\033[27;1H 8 `o&#x27; 8  8 8    8 8  `&#x27; .oooo8   8  8    8 8  `&#x27; 8    8    8   `b  8 8  `&#x27; 8    8
+\033[28;1H 8     8  8 8    8 8     8    8   8  8    8 8     8    8    8    8  8 8     8    8
+\033[29;1H 8     8  8 `YooP8 8     `YooP8   8  `YooP&#x27; 8     `YooP8    8oooP&#x27;  8 8     `YooP&#x27;
+\033[30;1H                 8                                    .8
+\033[31;1H              ooP&#x27;                                  ooP&#x27;.
+\033[32;1H o     o  o                      8  o
+\033[33;1H 8     8                         8
+\033[34;1H 8     8 o8 .oPYo. o    o .oPYo. 8 o8 .oooo. .oPYo. oPYo.
+\033[35;1H `b   d&#x27;  8 Yb..   8    8 .oooo8 8  8   .dP  8oooo8 8  `&#x27;
+\033[36;1H  `b d&#x27;   8   &#x27;Yb. 8    8 8    8 8  8  oP&#x27;   8.     8
+\033[37;1H   `8&#x27;    8 `YooP&#x27; `YooP&#x27; `YooP8 8  8 `Yooo&#x27; `Yooo&#x27; 8
+&#x27;&#x27;&#x27;)
+
+    print(&#x27;&#x27;&#x27;\033[1;97H            .:----:.
+\033[2;97H         -+++++++*###=
+\033[3;97H       -++==-==++*##++.
+\033[4;97H     :+*++===●====+*-...
+\033[5;97H    .*++++====++*****++.
+\033[6;97H    .**+++++++*#%%#*+#*
+\033[7;97H    -*++++====+#%#   :
+\033[8;97H    +*+++===----=-
+\033[9;97H    =++++++++====-
+\033[10;97H   :+**+++*+=======+.
+\033[11;97H  .+=+++++====+++=====.
+\033[12;97H  =+===++++++++=+*==++=:
+\033[13;97H -#*==---=====+==#+*+++=:
+\033[14;97H *##*+========----*:**++=:
+\033[15;97H .*##*+**+++=====-=**:#*++=:
+\033[16;97H .+%###*****+===---=#*=#++=-.
+\033[17;97H +#%###*****+=:-----##*+++=-
+\033[18;97H +#%#*****++==-----===##+=--.
+\033[19;97H :*%%********+==+==-++=#*++=:     -*
+\033[20;97H  *#####***##*++++==++-=**++=.   =%*
+\033[21;97H   ###**##**##*+++++##+=--+*=-:=+.
+\033[22;97H    =%*###########**##+-::-+++*-
+\033[23;97H     .############*####=::-=**=.
+\033[24;97H       -*#######%###*-:-=*%#%%#-
+\033[25;97H         +**##########=*@%+-=%%=
+\033[26;97H         .++***++***%@#%%#*=-+%*.
+\033[27;97H        .:-==+*##%%%%%%%%##*=-+#.
+\033[28;97H       -==+%%@++%%%%@%@@@%%*==-+:
+\033[29;97H       -%**-..   :##%%%@@@@%*+==.
+\033[30;97H         .         .+#%%%%%%#*++-
+\033[31;97H                     :%%%##%%##**-
+\033[32;97H                       +%####***##=
+\033[33;97H                        #%#******##-
+\033[34;97H                        .%%#*****##*-
+\033[35;97H                         :####*###***-
+\033[36;97H                          -##*+=*##***:
+\033[37;97H                           =**+=+*##**+
+\033[38;97H                            =**++*****+:
+\033[39;97H                             -+*++***+:  &#x27;&#x27;&#x27;)
+
+    print(&quot;\033[11;140H\033[1;4;36m=== Map Selection by Record ID ===\033[0m&quot;)
+    print(&quot;\033[12;140H \t1: 608242-617791&quot;)
+    print(&quot;\033[13;140H \t2: 617792-627341&quot;)
+    print(&quot;\033[14;140H \t3: 627342-636891&quot;)
+    print(&quot;\033[15;140H \t4: 636892-646441&quot;)
+    print(&quot;\033[16;140H \t5: 646442-655991&quot;)
+    print(&quot;\033[17;140H \t6: 655992-665541&quot;)
+    print(&quot;\033[18;140H \t7: 665542-675091&quot;)
+    print(&quot;\033[19;140H \t8: 675092-684641&quot;)
+    print(&quot;\033[20;140H \t9: 684642-694191&quot;)
+    print(&quot;\033[21;140H \t10:  694192-703741&quot;)
+    print(&quot;\033[22;140H \t11:  703742-718915&quot;)
+    print(&quot;\033[23;140H \t12:  608242-617241&quot;)
+
+    print(&quot;\033[2;135H\033[1;4;33m*** How to Use the Visualizer ***\033[0m&quot;)
+    print(&quot;\033[3;135H \t exit: end program&quot;)
+    print(&quot;\033[3;135H \t docs: shows faa documentation&quot;)
+    print(&quot;\033[4;135H \t faa: FAA website&quot;)
+    print(&quot;\033[5;135H \t profHVZ: get to know Dr. Hannah Vander Zanden&quot;)
+    print(&quot;\033[6;135H \t pydocs: shows python documentation&quot;)
+    print(&quot;\033[7;135H \t animalMigration: thank you message&quot;)
+    print(&quot;\033[8;135H \t hiral: get to know me!&quot;)
+    print(&quot;\033[9;135H \t 1-12: displays heatmap/visualization&quot;)
+
+    print(&quot;\033[27;145H\033[1;4;95m--- About the Visualizer ---\033[0m&quot;)
+    print(&quot;\033[28;140H   This visualizer prototype uses Python&quot;)
+    print(&quot;\033[29;140H to create heatmaps!&quot;)
+    print(&quot;\033[30;140H   Maps 1-11 are all 9000 data points each,&quot;)
+    print(&quot;\033[31;140H to ensure it is less memory intensive.&quot;)
+    print(&quot;\033[32;140H   Each contains data from 1990 - 2011.&quot;)
+    print(&quot;\033[33;140H   The FAA organizes their datasets using IDs&quot;)
+    print(&quot;\033[34;140H per incident, which also have been used here!&quot;)
+    print(&quot;\033[35;140H   Map 12 contains 45000+ data points&quot;)
+    print(&quot;\033[36;140H mapping the lat. &amp; long. of bird strikes.&quot;)
+    print(&quot;\033[37;140H   I hope this project encourages&quot;)
+    print(&quot;\033[38;140H avian conservation &amp; research &lt;3!&quot;)
+
+    print(&#x27;&#x27;&#x27;\033[35;55H         _,--&#x27;,   _._.--._____
+\033[36;55H  .--.--&#x27;;_&#x27;-.&#x27;, &quot;;_      _.,-&#x27;
+\033[37;55H .&#x27;--&#x27;.  _.&#x27;    {`&#x27;-;_ .-.&gt;.&#x27;
+\033[38;55H       &#x27;-:_      )  / `&#x27; &#x27;=.
+\033[39;55H         ) &gt;     {_/,     /~)
+\033[40;55H         |/               `^ .&#x27;&#x27;&#x27;)
+
+    while True:
+        count = 0
+        choice = input(&#x27;\033[25;140H\033[1;4;32m&gt;&gt;&gt; Enter a selection:\033[0m &#x27;)
+
+        if choice == &quot;exit&quot;:
+            clear_screen()
+            print(&quot;\a&quot;)
+            break
+
+        if choice == &quot;docs&quot;:
+            file_path = r&quot;C:/Users/singu/Downloads/NWSD/fieldlist.pdf&quot;
+            file_path = os.path.abspath(file_path)
+            webbrowser.open(&#x27;file:///&#x27; + file_path)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice == &quot;profHVZ&quot;:
+            file_path = r&quot;https://people.clas.ufl.edu/hvz/people/&quot;
+            webbrowser.open(file_path)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice == &quot;faa&quot;:
+            file_path = r&quot;https://wildlife.faa.gov/home&quot;
+            webbrowser.open(file_path)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice == &quot;animalMigration&quot;:
+            count += 1
+            if count == 1:
+                print(&quot;\033[36;87HThank you to my classmates&quot;)
+                print(&quot;\033[37;85H       of Fall 2024 Animal Migration&quot;)
+                print(&quot;\033[38;85H       and to Professor Vander Zanden&quot;)
+                print(&quot;\033[39;85H          for an inspiring semester.&quot;)
+                print(&quot;\033[40;85H                     ~ Hiral Shukla&quot;)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice == &quot;hiral&quot;:
+            file_path = (r&quot;https://docs.google.com/document/d/&quot;
+                         r&quot;1xEl3T2zJyEhXkI6hE5laduhFugNRIlN-mSVoM34J3gs/edit?usp=sharing&quot;)
+            webbrowser.open(file_path)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice == &quot;pydocs&quot;:
+            txt_files = [
+                r&quot;C:\Users\singu\PycharmProjects\animalMigration\pydocumentation.txt&quot;,
+                r&quot;C:\Users\singu\PycharmProjects\animalMigration\map_generator_11.txt&quot;
+            ]
+            output_html = &quot;documentation.html&quot;
+            generate_html_from_multiple_txt(txt_files, output_html)
+            print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+            print(&quot;\a&quot;)
+
+        if choice.isdigit():
+            if int(choice) == 12:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\combined_heatmap_with_bird_info.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 11:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final11.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 10:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final10.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 9:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final9.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 8:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final8.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 7:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final7.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 6:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final6.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 5:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final5.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 4:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final4.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 3:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final3.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 2:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final2.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+            if int(choice) == 1:
+                file_path = r&quot;C:\Users\singu\Downloads\NWSD\final1.html&quot;
+                file_path = os.path.abspath(file_path)
+                webbrowser.open(&#x27;file://&#x27; + file_path)
+                print(&quot;\033[25;140H&quot; + &quot; &quot; * 40)
+                print(&quot;\a&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre><h2>map_generator_11.txt</h2><pre>import pandas as pd
+import plotly_express as px
+
+import folium
+from folium.plugins import HeatMap
+
+# documentation: https://bytescout.com/blog/plotting-geographical-heatmaps-using-python-folium-library.html
+
+# File path and chunking parameters for the heat map data
+file_path = r&#x27;C:\Users\hiralshukla\Downloads\Public.xlsx&#x27;
+chunk_size = 9000
+total_rows = 305334
+
+# Dictionary with migration information and coordinates for each city
+migration_info = {
+    &quot;New York City&quot;: {
+        &quot;location&quot;: [40.712776, -74.005974],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Yellow-rumped Warbler, Black-throated Blue Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Thrushes:&lt;/b&gt; Hermit Thrush, Swainson&#x27;s Thrush.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Sparrows:&lt;/b&gt; White-throated Sparrows, Song Sparrows.&quot;
+        )
+    },
+    &quot;Chicago&quot;: {
+        &quot;location&quot;: [41.878113, -87.629799],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; American Redstart, Magnolia Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Thrushes:&lt;/b&gt; Veery, Wood Thrush.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Sparrows:&lt;/b&gt; Lincoln&#x27;s Sparrow, Fox Sparrow.&quot;
+        )
+    },
+    &quot;Houston&quot;: {
+        &quot;location&quot;: [29.760427, -95.369804],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Prothonotary Warbler, Yellow Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Orioles:&lt;/b&gt; Baltimore Orioles.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Tanagers:&lt;/b&gt; Summer Tanager.&quot;
+        )
+    },
+    &quot;Los Angeles&quot;: {
+        &quot;location&quot;: [34.052235, -118.243683],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Townsend&#x27;s Warbler, Wilson&#x27;s Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Flycatchers:&lt;/b&gt; Pacific-slope Flycatcher.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Swallows:&lt;/b&gt; Cliff Swallow, Barn Swallow.&quot;
+        )
+    },
+    &quot;Atlanta&quot;: {
+        &quot;location&quot;: [33.7490, -84.3880],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Black-throated Green Warbler, Pine Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Vireos:&lt;/b&gt; Red-eyed Vireo.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Thrushes:&lt;/b&gt; Gray-cheeked Thrush.&quot;
+        )
+    },
+    &quot;Seattle&quot;: {
+        &quot;location&quot;: [47.6062, -122.3321],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Yellow Warbler, Orange-crowned Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Flycatchers:&lt;/b&gt; Willow Flycatcher.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Swallows:&lt;/b&gt; Violet-green Swallow.&quot;
+        )
+    },
+    &quot;Miami&quot;: {
+        &quot;location&quot;: [25.7617, -80.1918],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Black-and-white Warbler, Palm Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Swallows:&lt;/b&gt; Bank Swallow, Barn Swallow.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Tanagers:&lt;/b&gt; Scarlet Tanager.&quot;
+        )
+    },
+    &quot;Denver&quot;: {
+        &quot;location&quot;: [39.7392, -104.9903],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Yellow-rumped Warbler, MacGillivray&#x27;s Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Flycatchers:&lt;/b&gt; Western Wood-Pewee.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Sparrows:&lt;/b&gt; White-crowned Sparrow.&quot;
+        )
+    },
+    &quot;Boston&quot;: {
+        &quot;location&quot;: [42.3601, -71.0589],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Blackpoll Warbler, Northern Parula.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Thrushes:&lt;/b&gt; Swainson&#x27;s Thrush.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Sparrows:&lt;/b&gt; Savannah Sparrow.&quot;
+        )
+    },
+    &quot;San Francisco&quot;: {
+        &quot;location&quot;: [37.7749, -122.4194],
+        &quot;info&quot;: (
+            &quot;&lt;b&gt;Warblers:&lt;/b&gt; Townsend&#x27;s Warbler, Hermit Warbler.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Flycatchers:&lt;/b&gt; Pacific-slope Flycatcher.&lt;br&gt;&quot;
+            &quot;&lt;b&gt;Swallows:&lt;/b&gt; Tree Swallow, Northern Rough-winged Swallow.&quot;
+        )
+    }
+}
+
+# Process data in chunks and add heat map layers to a new map for each chunk
+for start_row in range(0, total_rows, chunk_size):
+    nrows = min(chunk_size, total_rows - start_row)
+    data_sample = pd.read_excel(file_path, sheet_name=&#x27;Sheet1&#x27;, skiprows=range(1, start_row + 1), nrows=nrows)
+
+    # Initialize a new map for each chunk
+    overall_map = folium.Map(location=[39.8283, -98.5795], zoom_start=5)
+
+    # Filter and clean data for latitude and longitude
+    data_sample = data_sample[[&#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;]].dropna()
+    heat_data = data_sample[[&#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;]].values.tolist()
+
+    # Add heat map layer for the current chunk
+    HeatMap(heat_data, radius=10, max_zoom=13).add_to(overall_map)
+
+    # Add markers with pop-ups for each city with migration info
+    for city, data in migration_info.items():
+        folium.Marker(
+            location=data[&quot;location&quot;],
+            popup=folium.Popup(data[&quot;info&quot;], max_width=300),
+            tooltip=city
+        ).add_to(overall_map)
+
+    # Save the final map for this chunk with a dynamic name
+    chunk_number = (start_row // chunk_size) + 1
+    output_file = f&quot;C:/Users/hiralshukla/Downloads/final{chunk_number}.html&quot;
+    overall_map.save(output_file)
+
+    print(f&quot;Chunk {chunk_number} done! Map saved as {output_file}&quot;)</pre>
+    </body>
+    </html>
+    

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c29e38cd3b640a615c2779353d853dc1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c29e38cd3b640a615c2779353d853dc1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c29e38cd3b640a615c2779353d853dc1 = L.map(
+                "map_c29e38cd3b640a615c2779353d853dc1",
+                {
+                    center: [39.8283, -98.5795],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_43bca2934285ac79403c6e4680b0628a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_43bca2934285ac79403c6e4680b0628a.addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+            var marker_0052438a00c90a19eaaf710dacf9bb32 = L.marker(
+                [40.712776, -74.005974],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_3a1b6a0c20520c25990f7cf71e4a65b9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0dc23662d8eaa685e5a2d32b70e3f46b = $(`<div id="html_0dc23662d8eaa685e5a2d32b70e3f46b" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Yellow-rumped Warbler, Black-throated Blue Warbler.<br><b>Thrushes:</b> Hermit Thrush, Swainson's Thrush.<br><b>Sparrows:</b> White-throated Sparrows, Song Sparrows.</div>`)[0];
+                popup_3a1b6a0c20520c25990f7cf71e4a65b9.setContent(html_0dc23662d8eaa685e5a2d32b70e3f46b);
+            
+        
+
+        marker_0052438a00c90a19eaaf710dacf9bb32.bindPopup(popup_3a1b6a0c20520c25990f7cf71e4a65b9)
+        ;
+
+        
+    
+    
+            marker_0052438a00c90a19eaaf710dacf9bb32.bindTooltip(
+                `<div>
+                     New York City
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f396f954d3e4b4f09db98636de5923f1 = L.marker(
+                [41.878113, -87.629799],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_5d022ede6a25f5bff184ed69b5803809 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8c5ab15da986594e20bd989684c44204 = $(`<div id="html_8c5ab15da986594e20bd989684c44204" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> American Redstart, Magnolia Warbler.<br><b>Thrushes:</b> Veery, Wood Thrush.<br><b>Sparrows:</b> Lincoln's Sparrow, Fox Sparrow.</div>`)[0];
+                popup_5d022ede6a25f5bff184ed69b5803809.setContent(html_8c5ab15da986594e20bd989684c44204);
+            
+        
+
+        marker_f396f954d3e4b4f09db98636de5923f1.bindPopup(popup_5d022ede6a25f5bff184ed69b5803809)
+        ;
+
+        
+    
+    
+            marker_f396f954d3e4b4f09db98636de5923f1.bindTooltip(
+                `<div>
+                     Chicago
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae79ad737abc06ac690056e79eb2008c = L.marker(
+                [29.760427, -95.369804],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_abd5b4aa7db56589fd377825e81360b2 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_cba6bca9a053f189fb7d6e920b273b96 = $(`<div id="html_cba6bca9a053f189fb7d6e920b273b96" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Prothonotary Warbler, Yellow Warbler.<br><b>Orioles:</b> Baltimore Orioles.<br><b>Tanagers:</b> Summer Tanager.</div>`)[0];
+                popup_abd5b4aa7db56589fd377825e81360b2.setContent(html_cba6bca9a053f189fb7d6e920b273b96);
+            
+        
+
+        marker_ae79ad737abc06ac690056e79eb2008c.bindPopup(popup_abd5b4aa7db56589fd377825e81360b2)
+        ;
+
+        
+    
+    
+            marker_ae79ad737abc06ac690056e79eb2008c.bindTooltip(
+                `<div>
+                     Houston
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_608ffb3d131e5357b9340e3d91c69990 = L.marker(
+                [34.052235, -118.243683],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_4c129e401ca1c0c593370fec21b7c884 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2e3585a8d333d4e136f0ed505c83a0fb = $(`<div id="html_2e3585a8d333d4e136f0ed505c83a0fb" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Townsend's Warbler, Wilson's Warbler.<br><b>Flycatchers:</b> Pacific-slope Flycatcher.<br><b>Swallows:</b> Cliff Swallow, Barn Swallow.</div>`)[0];
+                popup_4c129e401ca1c0c593370fec21b7c884.setContent(html_2e3585a8d333d4e136f0ed505c83a0fb);
+            
+        
+
+        marker_608ffb3d131e5357b9340e3d91c69990.bindPopup(popup_4c129e401ca1c0c593370fec21b7c884)
+        ;
+
+        
+    
+    
+            marker_608ffb3d131e5357b9340e3d91c69990.bindTooltip(
+                `<div>
+                     Los Angeles
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_854b7ef68995627aa4c09976a4b895e2 = L.marker(
+                [33.749, -84.388],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_ae7dfab95fba60a48bfec9fa867ef814 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c936abf20d4b081ae5b7db6c29a2d430 = $(`<div id="html_c936abf20d4b081ae5b7db6c29a2d430" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Black-throated Green Warbler, Pine Warbler.<br><b>Vireos:</b> Red-eyed Vireo.<br><b>Thrushes:</b> Gray-cheeked Thrush.</div>`)[0];
+                popup_ae7dfab95fba60a48bfec9fa867ef814.setContent(html_c936abf20d4b081ae5b7db6c29a2d430);
+            
+        
+
+        marker_854b7ef68995627aa4c09976a4b895e2.bindPopup(popup_ae7dfab95fba60a48bfec9fa867ef814)
+        ;
+
+        
+    
+    
+            marker_854b7ef68995627aa4c09976a4b895e2.bindTooltip(
+                `<div>
+                     Atlanta
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_49a5332a079b19320c748283ab114898 = L.marker(
+                [47.6062, -122.3321],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_41857e1efc473203a8e1ae16a08d64f5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3deb14d089d4999b11cb356ac4c7f214 = $(`<div id="html_3deb14d089d4999b11cb356ac4c7f214" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Yellow Warbler, Orange-crowned Warbler.<br><b>Flycatchers:</b> Willow Flycatcher.<br><b>Swallows:</b> Violet-green Swallow.</div>`)[0];
+                popup_41857e1efc473203a8e1ae16a08d64f5.setContent(html_3deb14d089d4999b11cb356ac4c7f214);
+            
+        
+
+        marker_49a5332a079b19320c748283ab114898.bindPopup(popup_41857e1efc473203a8e1ae16a08d64f5)
+        ;
+
+        
+    
+    
+            marker_49a5332a079b19320c748283ab114898.bindTooltip(
+                `<div>
+                     Seattle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1ab76245af4a55a9eefc5905cf4b33cd = L.marker(
+                [25.7617, -80.1918],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_0244f549137475ffc8548c002fdf70a1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_71ee6fcaae8a1fb76a1bc15d2e47d601 = $(`<div id="html_71ee6fcaae8a1fb76a1bc15d2e47d601" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Black-and-white Warbler, Palm Warbler.<br><b>Swallows:</b> Bank Swallow, Barn Swallow.<br><b>Tanagers:</b> Scarlet Tanager.</div>`)[0];
+                popup_0244f549137475ffc8548c002fdf70a1.setContent(html_71ee6fcaae8a1fb76a1bc15d2e47d601);
+            
+        
+
+        marker_1ab76245af4a55a9eefc5905cf4b33cd.bindPopup(popup_0244f549137475ffc8548c002fdf70a1)
+        ;
+
+        
+    
+    
+            marker_1ab76245af4a55a9eefc5905cf4b33cd.bindTooltip(
+                `<div>
+                     Miami
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_094a2cd8889646feb9c2b2a7383d40c7 = L.marker(
+                [39.7392, -104.9903],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_0eb9f341ba19681d0733b52c42067f5a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a5b1d96eb9aaa2a517a8dc82c20dd18a = $(`<div id="html_a5b1d96eb9aaa2a517a8dc82c20dd18a" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Yellow-rumped Warbler, MacGillivray's Warbler.<br><b>Flycatchers:</b> Western Wood-Pewee.<br><b>Sparrows:</b> White-crowned Sparrow.</div>`)[0];
+                popup_0eb9f341ba19681d0733b52c42067f5a.setContent(html_a5b1d96eb9aaa2a517a8dc82c20dd18a);
+            
+        
+
+        marker_094a2cd8889646feb9c2b2a7383d40c7.bindPopup(popup_0eb9f341ba19681d0733b52c42067f5a)
+        ;
+
+        
+    
+    
+            marker_094a2cd8889646feb9c2b2a7383d40c7.bindTooltip(
+                `<div>
+                     Denver
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5e1c29848fe25eb25d6790f4f8266402 = L.marker(
+                [42.3601, -71.0589],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_be4819c3fe02a0ee41367265c39e2f69 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c6063850b875ab7b87cb4021aea409e6 = $(`<div id="html_c6063850b875ab7b87cb4021aea409e6" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Blackpoll Warbler, Northern Parula.<br><b>Thrushes:</b> Swainson's Thrush.<br><b>Sparrows:</b> Savannah Sparrow.</div>`)[0];
+                popup_be4819c3fe02a0ee41367265c39e2f69.setContent(html_c6063850b875ab7b87cb4021aea409e6);
+            
+        
+
+        marker_5e1c29848fe25eb25d6790f4f8266402.bindPopup(popup_be4819c3fe02a0ee41367265c39e2f69)
+        ;
+
+        
+    
+    
+            marker_5e1c29848fe25eb25d6790f4f8266402.bindTooltip(
+                `<div>
+                     Boston
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7623bf2d2301fcfe18a4621c3aa6c076 = L.marker(
+                [37.7749, -122.4194],
+                {}
+            ).addTo(map_c29e38cd3b640a615c2779353d853dc1);
+        
+    
+        var popup_324fd2e4b9b8ec03036bd12df6c63b6b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4014575582b9786a57fe7374f2344f86 = $(`<div id="html_4014575582b9786a57fe7374f2344f86" style="width: 100.0%; height: 100.0%;"><b>Warblers:</b> Townsend's Warbler, Hermit Warbler.<br><b>Flycatchers:</b> Pacific-slope Flycatcher.<br><b>Swallows:</b> Tree Swallow, Northern Rough-winged Swallow.</div>`)[0];
+                popup_324fd2e4b9b8ec03036bd12df6c63b6b.setContent(html_4014575582b9786a57fe7374f2344f86);
+            
+        
+
+        marker_7623bf2d2301fcfe18a4621c3aa6c076.bindPopup(popup_324fd2e4b9b8ec03036bd12df6c63b6b)
+        ;
+
+        
+    
+    
+            marker_7623bf2d2301fcfe18a4621c3aa6c076.bindTooltip(
+                `<div>
+                     San Francisco
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
