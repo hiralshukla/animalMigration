@@ -8,6 +8,7 @@
 - [Instructions](#instructions)
 - [Commands](#commands)
 - [How HeatMaps are Made](#how-heatmaps-are-made)
+- [Initial Commit Info](#initial-commit-info)
 - [Contributing](#contributing)
 
 # What is the Migratory Bird Visualizer?
@@ -57,8 +58,18 @@ Inputting these commands into the terminal will cause an action:
 
 The heatmaps are under-representative of the total number of bird strikes as those reprted without location data were not able to be plotted on the graph. The goal of the project is in the future being about to plot all data up till 2024 which would be 300000 data points. 
 
+# Initial Commit Info
+Included all files for final prototype version of project (excluding video demonstration and FAA data excel file due to size issue). Designed to run in PyCharm and on Windows 10 PowerShell using the following libraries for the user interface: webbrowser, ctypes, html, time, os and for the heatmap: pandas, folium, plotly_express, and openpyxl. 
+
+All text documents can be considered to be previous versions of the prototype, as they contain old code that was documented at various times during the three weeks of the prototype making process. All sources are documented on the interface or otherwise in code comments. 
+
+Special thanks to [Professor Hannah Vander Zanden](https://people.clas.ufl.edu/hvz/people/), the 2024 class of 'Is Animal Migration Disappearing?' Quest course, [Adam Gulde](https://github.com/adamgulde) of [Open Source Club](https://github.com/ufosc), Teacher Assistant [Lauren Escarcha](https://github.com/ubebabe) of Data Structures and Algorithms, [Shan Sundal](https://github.com/ssundal), and to family and friends that made this project possible.
+
 # Contributing
 Contact me at hiralshukla@ufl.edu
+
+
+
 
   
   
