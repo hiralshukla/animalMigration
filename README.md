@@ -44,7 +44,7 @@ Inputting these commands into the terminal will cause an action:
 - faa: FAA website
 - profHVZ: get to know Dr. Hannah Vander Zanden
 - pydocs: shows python documentation
- -animalMigration: thank you message
+- animalMigration: thank you message
 - hiral: get to know me!
 - 1-12: displays heatmap/visualization
 
